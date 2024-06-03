@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video Player Sederhana</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
+    <style>
+        *,
+        html,
+        body {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1 fr));
+            grid-gap: 10px;
+            max-width: 50%;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        video {
+            display: block;
+            width: 100%;
+            border: 2px solid blue;
+        }
+
+        .video-component {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            padding: 10px 12px;
+        }
+
+        .btn {
+            border: none;
+            padding: 5px;
+            font-weight: 800;
+            cursor: pointer;
+            font-size: 10px;
+            border-radius: 5px;
+            margin: 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <video id="myVideo" width="720">
+            <source src="./assets/9MM x LOLI SHIGURE UI.mp4" type="video/mp4" />
+        </video>
+        <div class="video-component">
+            <button onclick="playVideo()" class="btn btn-outline-primary">PLAY</button>
+            <button onclick="pauseVideo()" class="btn btn-outline-primary">PAUSE</button>
+            <button onclick="minimizeVideo()" class="btn btn-outline-primary">MINIMIZE</button>
+            <button onclick="maximizeVideo()" class="btn btn-outline-primary">MAXIMIZE</button>
+            <button onclick="stopVideo()" class="btn btn-outline-primary">STOP</button>
+        </div>
+    </div>
+    <script>
+        const videoComponent = document.getElementById("myVideo");
+
+        function playVideo() {
+            console.log("Playing");
+            videoComponent.play();
+        }
+
+        function pauseVideo() {
+            console.log("Pausing");
+            videoComponent.pause();
+        }
+
+        function minimizeVideo() {
+            console.log("Minimizing");
+            videoComponent.requestPictureInPicture();
+        }
+
+        function maximizeVideo() {
+            console.log("Minimizing");
+            videoComponent.requestFullscreen();
+        }
+
+        function stopVideo() {
+            console.log("Stopping");
+            videoComponent.pause();
+            videoComponent.currentTime = 0;
+        }
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
